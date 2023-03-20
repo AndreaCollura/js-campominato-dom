@@ -43,14 +43,7 @@ function play(e){
     
 
     
-    // function showDown (arrayToCheck, numToConfront ){
-    //     if (arrayTo
 
-    //     }
-
-            
-
-    // }
 
   
 
@@ -73,6 +66,11 @@ function play(e){
 
     let bombList = randomListGen(bombNumb, squareNumb)
 
+
+    // creo variabile sottraendo il num max di bombe al numero dei quadrati generati ottenendo il punteggio max da raggiungere
+
+    let winCond = squareNumb - bombNumb;
+
     
 
     for (let i = 1; i <= squareNumb; i++ ){
@@ -85,7 +83,7 @@ function play(e){
         square.addEventListener('click', function(){
 
             // aggiungo ulteriore if con un flag per interrompere l'evento click se ho trovato una bomba, e aggiungo ulteriore controllo specificando che se trovo la classe safe interrompe l'evento.
-        if(!gameOver && !this.classList.contains('safe')){
+        if(!gameOver  && !this.classList.contains('safe')){
 
 
                 if (bombList.includes(i)){
@@ -95,29 +93,37 @@ function play(e){
                     scoreTxt.innerHTML = `you loose! score: ${yourScore}`;
                     //devo aggiungere la classe dead al resto delle bombe generate e non cliccate appena trovo la prima classe dead.
                    
-                    console.log(bombList);
+                    
                     gameOver = true;
                     
                 } else {
 
                     this.classList.add('safe')
                     yourScore++;
+                    // aggiungo ulteriore if per controllare che, quando il mio punteggio é uguale alla variabile creata sopra (numero max bombe - numero di quadrati max) allora riporterá la scritta you win
+                    
+                    if(winCond !== yourScore){
                     scoreTxt.innerHTML = `
                         <h2 class="mt-4 fs-5 text-capitalize">your score is: ${yourScore} </h2>
                     `;
-                    
+                    } else {
+
+                        scoreTxt.innerHTML = `
+                        <h2 class="mt-4 fs-5 text-capitalize">you win!! : with a score of ${yourScore} </h2>
+                    `;
+
+                    }
                 };
 
             } 
 
        } )
         playGround.appendChild(square);
+        console.log(bombList);
+        console.log(winCond);
     }
     
 }
-
-
-
 
 
 

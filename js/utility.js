@@ -6,7 +6,7 @@ function getRndNumber(min, max) {
   //  genero array bombe
  function randomListGen(volteCheDesidero, numRange){
   const myArray =  [];
-  while (myArray.length <= volteCheDesidero){
+  while (myArray.length < volteCheDesidero){
      const rndNum = getRndNumber(1, numRange);
      // constrollo se le rndNume appena generate sono dentro array ...finalmete ho capito!
      // CONTROLLO SE LA rndNumA GENERATA RANDOMICAMENTE VENGA RICERCATA  E TROVATA DENTRO L'ARRAY DELLE rndNumE
