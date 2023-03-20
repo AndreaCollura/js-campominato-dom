@@ -42,8 +42,19 @@ function play(e){
     let gameOver = false;
     
 
-    
+    // creo funzione prendewndo tutti i quadrati generati e per ogni quadrato se la lista delle bombe combacia con il contenuto del quadrato traformato in numero, allora aggiungerá la classe dead a tutti i quadrati con riscontro positivo
+    function showDown(){
+        const allSquares = document.querySelectorAll('.square');
+        for(let square of allSquares){
+            if(bombList.includes(parseInt(square.innerText))){
+                square.classList.add('dead');
+            }
+        }
 
+
+        
+
+    }
 
   
 
@@ -90,11 +101,14 @@ function play(e){
 
                     
                     this.classList.add('dead');
-                    scoreTxt.innerHTML = `you loose! score: ${yourScore}`;
+                    scoreTxt.innerHTML = `you lose! final score: ${yourScore}`;
                     //devo aggiungere la classe dead al resto delle bombe generate e non cliccate appena trovo la prima classe dead.
+                    // inzio con il crearmi sopra una funzione che mi permette di aggiungere la classe dead a tutti gli square rimasti 
                    
                     
                     gameOver = true;
+                    // richiamo la funzione creata sopra per mostrare le bombe totali al ritrovamento della prima bomba
+                    showDown()
                     
                 } else {
 
