@@ -1,0 +1,61 @@
+/* :root{
+
+    
+} */
+
+
+.debug{
+    border: 1px solid red;
+}
+
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: #7fffd4;
+
+}
+
+header,footer{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+}
+
+main{
+    
+    height: calc(100% - 160px);
+
+
+}
+
+
+.squarecontain{
+    width: 500px;
+    height: 500px;
+}
+
+
+.square{
+    
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.safe{
+    background-color: #161c71;
+    color: white;
+
+}
+
+
+.dead{
+
+    background-color: #8e191d;
+    color: white;
+
+}
